@@ -10,3 +10,27 @@ Commands to run the project
 */
 docker-compose up -d
 docker exec -it redis_ru102j redis-cli
+
+/*
+Commands to build/ test the code
+*/
+mvn package
+mvn test
+mvn test -Dtest=HelloTest
+
+/*
+Loading the Sample Data
+*/
+java -jar target/redisolar-1.0.jar load
+java -jar target/redisolar-1.0.jar load --flush true
+java -jar target/redisolar-1.0.jar load --host myhost --port 6380 --password secret
+
+/*
+Running the sample application
+*/
+java -jar target/redisolar-1.0.jar server config.yml
+
+/*
+App URL
+*/
+http://localhost:8081/
