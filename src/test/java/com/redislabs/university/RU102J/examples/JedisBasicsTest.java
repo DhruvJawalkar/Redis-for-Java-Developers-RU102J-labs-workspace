@@ -37,6 +37,7 @@ public class JedisBasicsTest {
         jedis.close();
     }
 
+    //Unit test on storing a list of strings in a redis instance and assertions on length, members, addition, removal of items
     @Test
     public void testRedisList() {
         assertThat(testPlanets.length, is(11));
@@ -67,6 +68,7 @@ public class JedisBasicsTest {
         assertThat(jedis.llen("planets"), is(8L));
     }
 
+    //Unit test on storing a set of strings in a redis instance and assertions on size, members, removal of items
     @Test
     public void testRedisSet() {
         assertThat(testPlanets.length, is(11));
@@ -97,6 +99,7 @@ public class JedisBasicsTest {
         assertThat(newLength, is(8L));
     }
 
+    //Unit test on storing hashes in a redis instance and assertions on hash <key, value>'s, using hset vs hmset operation, retrieval of a value associated with a key
     @Test
     public void testRedisHash() {
         Map<String, String> earthProperties = new HashMap<>();
