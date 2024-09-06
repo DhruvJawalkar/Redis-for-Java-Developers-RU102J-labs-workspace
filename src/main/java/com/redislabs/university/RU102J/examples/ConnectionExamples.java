@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class ConnectionExamples {
 
+    //Basic Jedis client
     // Create a basic connection to Redis. Not threadsafe!
     public static Jedis getJedis(String host, Integer port, int timeout,
                                  String password) {
@@ -16,6 +17,7 @@ public class ConnectionExamples {
         return jedis;
     }
 
+    //JedisPool client, thread safe
     // Create a pool of connections to Redis. This is threadsafe.
     public static JedisPool getPool(String host, Integer port,
                                     int maxConnections, int timeout,
@@ -27,6 +29,7 @@ public class ConnectionExamples {
         return new JedisPool(config, host, port, timeout, password);
     }
 
+    //JedisSentinelPool client
     // Connect to a Redis Sentinel deployment. Pooled and threadsafe.
     public static JedisSentinelPool getJedisSentinelPool(int maxConnections,
                                                          int timeout,
@@ -44,6 +47,7 @@ public class ConnectionExamples {
                 password);
     }
 
+    //JedisCluster client
     /** Connect to a Redis Cluster deployment. Uses a pool connection under
     the hood and is threadsafe.
     */
